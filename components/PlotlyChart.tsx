@@ -35,7 +35,7 @@ type PlotlyLib = {
   purge: (el: HTMLElement) => void;
 };
 
-const FONT = 'var(--font-plex-sans), "IBM Plex Sans", -apple-system, Helvetica, Arial, sans-serif';
+const FONT = '"IBM Plex Sans", -apple-system, Helvetica, Arial, sans-serif';
 
 function darkLayout(layout: Record<string, unknown>, width: number): Record<string, unknown> {
   const l = recolor(layout) as Record<string, unknown>;

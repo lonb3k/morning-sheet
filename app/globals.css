@@ -25,8 +25,8 @@
   --accent: var(--blue);
   --spark: #4b5567;
   /* type */
-  --font-sans: var(--font-plex-sans), "IBM Plex Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-  --font-mono: var(--font-plex-mono), "IBM Plex Mono", "SF Mono", Menlo, Consolas, monospace;
+  --font-sans: "IBM Plex Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", "SF Mono", Menlo, Consolas, monospace;
   --radius: 6px;
   --gutter: 16px;
   --max: 1180px;
