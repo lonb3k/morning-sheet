@@ -55,3 +55,14 @@ npm run dev                                     # reads the JSON committed on Gi
 
 The Streamlit apps stay the full interactive version of each project (`streamlit run app.py` in
 each repo, ports 8501 to 8503).
+
+## Deploy
+
+The Vercel project `morning-sheet` (team le-cercle-escp) is not linked to GitHub: Vercel's GitHub app is
+installed on another account. Deployments are created through the Vercel API with the source files
+inline (`create_deployment` with `files`; unchanged files can be referenced by SHA1 and size). The
+production alias is https://morning-sheet-le-cercle-escp.vercel.app. Because the pages revalidate the
+JSON every 30 minutes, the daily data refresh needs no redeploy; only code changes do.
+
+`scripts/record_gif.py <url> <out.gif>` records the 30-second scrolling tour used at the top of each
+project README (Playwright + Pillow).
