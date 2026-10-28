@@ -58,10 +58,10 @@ each repo, ports 8501 to 8503).
 
 ## Deploy
 
-The Vercel project `morning-sheet` (team le-cercle-escp) is not linked to GitHub: Vercel's GitHub app is
-installed on another account. Deployments are created through the Vercel API with the source files
+The Vercel project `morning-sheet` (account ramzan-7284) is not linked to GitHub: the Vercel GitHub app
+is not installed on that account. Deployments are created through the Vercel API with the source files
 inline (`create_deployment` with `files`; unchanged files can be referenced by SHA1 and size). The
-production alias is https://morning-sheet-nine.vercel.app. Because the pages revalidate the
+production alias is https://morning-sheet-olive.vercel.app. Because the pages revalidate the
 JSON every 30 minutes, the daily data refresh needs no redeploy; only code changes do.
 
 `scripts/record_gif.py <url> <out.gif>` records the 30-second scrolling tour used at the top of each
