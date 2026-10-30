@@ -96,7 +96,14 @@ export default async function SheetPage({ params }: { params: Promise<{ slug: st
             <li>
               Code and data: <a href={sheet.links.repo} target="_blank" rel="noreferrer">{sheet.links.repo.replace("https://", "")}</a>
             </li>
-            <li>Full interactive app: <span className="mono">{sheet.links.streamlit}</span></li>
+            <li>
+              Full interactive app:{" "}
+              {sheet.links.streamlit.startsWith("http") ? (
+                <a href={sheet.links.streamlit} target="_blank" rel="noreferrer">{sheet.links.streamlit.replace("https://", "")}</a>
+              ) : (
+                <span className="mono">{sheet.links.streamlit}</span>
+              )}
+            </li>
             <li>This page reads <span className="mono">sheet/latest.json</span>, rebuilt by GitHub Actions on weekdays after the close.</li>
             {sheet.warnings.length > 0 && <li>Build warnings: {sheet.warnings.join("; ")}</li>}
           </ul>

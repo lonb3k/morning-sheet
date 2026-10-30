@@ -53,8 +53,9 @@ SHEET_LOCAL_ROOT=/path/to/trd npm run dev      # reads ../<project>/sheet/latest
 npm run dev                                     # reads the JSON committed on GitHub
 ```
 
-The Streamlit apps stay the full interactive version of each project (`streamlit run app.py` in
-each repo, ports 8501 to 8503).
+The Streamlit apps stay the full interactive version of each project, hosted on Streamlit Community
+Cloud ([vol](https://lonb3k-vol-dashboard.streamlit.app), [dispersion](https://lonb3k-dispersion.streamlit.app),
+[basket](https://lonb3k-basket-optimizer.streamlit.app)); each sheet links to its app.
 
 ## Deploy
 
