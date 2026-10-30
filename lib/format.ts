@@ -13,6 +13,8 @@ export function fmtSigned(v: number | null | undefined, digits = 1): string {
 /** Digits for a tile value: integers for prices, otherwise one decimal (two for small ratios). */
 export function tileDigits(v: number | null, unit: string): number {
   if (v === null) return 1;
+  if (unit.startsWith("k$") || unit === "trades") return 0;   // the book: thousands of dollars, counts
+  if (unit === "m$") return 2;
   if (unit === "" && Math.abs(v) >= 100) return 0;
   if (unit === "" && Math.abs(v) < 10) return 2;
   if (unit === "x") return 2;

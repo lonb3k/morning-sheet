@@ -12,7 +12,7 @@ export default async function Home() {
   return (
     <>
       <section className="hero">
-        <div className="kicker">{asOf ? fmtDate(asOf) : "Daily"} · three desk notes, generated from free data</div>
+        <div className="kicker">{asOf ? fmtDate(asOf) : "Daily"} · four desk notes, generated from free data</div>
         <h1>The market, read for you before the open.</h1>
         <p>
           Each sheet runs the research code of one project on the latest close and writes what a desk would say: where

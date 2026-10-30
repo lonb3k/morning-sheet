@@ -6,7 +6,7 @@ import type { Sheet } from "./types";
 
 /**
  * Load one sheet. In production this reads the JSON committed to GitHub, cached by Next.js for
- * REVALIDATE_SECONDS. Set SHEET_LOCAL_ROOT to the folder holding the three project checkouts to
+ * REVALIDATE_SECONDS. Set SHEET_LOCAL_ROOT to the folder holding the project checkouts to
  * read the files straight from disk during development.
  */
 export async function loadSheet(slug: string): Promise<Sheet | null> {

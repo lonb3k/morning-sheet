@@ -1,4 +1,4 @@
-/** The three research projects. Each one commits `sheet/latest.json` every weekday after the US close. */
+/** The three research projects and the simulated book built on them. Each one commits `sheet/latest.json` every weekday after the US close. */
 export const PROJECTS = [
   {
     slug: "vol",
@@ -23,6 +23,14 @@ export const PROJECTS = [
     repo: "lonb3k/basket-optimizer",
     dir: "basket_optimizer",
     port: 8503,
+  },
+  {
+    slug: "book",
+    name: "Book",
+    short: "Simulated derivatives book on the three projects' marks: daily P&L explain, risk against limits, axes",
+    repo: "lonb3k/trading-book",
+    dir: "trading_book",
+    port: 8504,
   },
 ] as const;
 

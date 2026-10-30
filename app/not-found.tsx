@@ -6,7 +6,7 @@ export default function NotFound() {
       <div className="kicker">404</div>
       <h1>No such sheet</h1>
       <p className="sub">
-        <Link href="/">Back to the three sheets</Link>
+        <Link href="/">Back to the sheets</Link>
       </p>
     </div>
   );

@@ -30,6 +30,8 @@ export interface IdeaStats {
   n: number;
   sample?: string;
   unconditional?: string;
+  /** Optional overrides of the four stat labels (the book's axes are not backtested ideas). */
+  labels?: { expected?: string; hit?: string; hit_unit?: string; worst?: string; sample?: string };
 }
 
 export interface Idea {
@@ -61,6 +63,8 @@ export interface Sheet {
   tiles: Tile[];
   sections: Section[];
   ideas: Idea[];
+  /** Title of the ideas column; defaults to "Trade ideas, ranked". */
+  ideas_title?: string;
   charts: Chart[];
   method: string;
   caveats: string[];

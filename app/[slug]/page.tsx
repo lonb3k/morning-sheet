@@ -57,7 +57,7 @@ export default async function SheetPage({ params }: { params: Promise<{ slug: st
       <div className="grid">
         <div>
           <div className="col-title">
-            <h2>Trade ideas, ranked</h2>
+            <h2>{sheet.ideas_title ?? "Trade ideas, ranked"}</h2>
             <span className="rule" />
           </div>
           <div className="ideas">

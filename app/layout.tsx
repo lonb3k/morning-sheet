@@ -5,7 +5,7 @@ import { PROJECTS } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: { default: "Morning sheets", template: "%s · Morning sheets" },
-  description: "Three desk notes generated every weekday from free market data: volatility, dispersion, basket.",
+  description: "Four desk notes generated every weekday from free market data: volatility, dispersion, basket, and the book built on them.",
   icons: { icon: "/icon.svg" },
 };
 
