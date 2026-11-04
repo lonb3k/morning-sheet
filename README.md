@@ -1,6 +1,6 @@
 # Morning sheets
 
-One site, four desk notes, regenerated every weekday from free market data:
+One site, five desk notes, regenerated every weekday from free market data:
 
 | Sheet | Source project | What it reads |
 |---|---|---|
@@ -8,6 +8,7 @@ One site, four desk notes, regenerated every weekday from free market data:
 | `/dispersion` | [lonb3k/dispersion](https://github.com/lonb3k/dispersion) | COR1M vs our implied correlation from 50 chains, realized correlation, the vega-weighted book at trailing vols, the correlation swap |
 | `/basket` | [lonb3k/basket-optimizer](https://github.com/lonb3k/basket-optimizer) | Today's risk-parity weights, the vol-target leverage, the regime, which basket to hold this month |
 | `/book` | [lonb3k/trading-book](https://github.com/lonb3k/trading-book) | A simulated derivatives book marked on the three projects' data: daily P&L explain, risk against limits, the desk's axes |
+| `/hedging` | [lonb3k/vol-dashboard](https://github.com/lonb3k/vol-dashboard) (`sheet/hedging.json`) | Corporate-hedging note: what a 12-month forward locks in and what optionality costs against history, for energy, metals and grains |
 
 Each page is a note: headline tiles with sparklines, sentences with the numbers filled in, two to
 four trade ideas ranked by **historical conditional expectation against historical worst case**

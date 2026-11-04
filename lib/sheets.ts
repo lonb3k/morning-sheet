@@ -14,10 +14,10 @@ export async function loadSheet(slug: string): Promise<Sheet | null> {
   if (!project) return null;
   const localRoot = process.env.SHEET_LOCAL_ROOT;
   if (localRoot) {
-    const file = path.join(localRoot, project.dir, "sheet", "latest.json");
+    const file = path.join(localRoot, project.dir, "sheet", project.file);
     return JSON.parse(await fs.readFile(file, "utf-8")) as Sheet;
   }
-  const res = await fetch(rawUrl(project.repo), { next: { revalidate: REVALIDATE_SECONDS } });
+  const res = await fetch(rawUrl(project.repo, project.file), { next: { revalidate: REVALIDATE_SECONDS } });
   if (!res.ok) return null;
   return (await res.json()) as Sheet;
 }

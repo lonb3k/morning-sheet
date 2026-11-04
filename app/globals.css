@@ -71,6 +71,9 @@ em { font-style: italic; color: var(--text-primary); }
 .nav-meta { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
 @media (max-width: 640px) {
   .nav .wrap { gap: 10px; }
+  .nav-links { overflow-x: auto; scrollbar-width: none; }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a { white-space: nowrap; padding: 6px 8px; }
   .nav-meta { display: none; }
   .brand span.label { display: none; }
 }

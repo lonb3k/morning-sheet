@@ -1,4 +1,5 @@
-/** The three research projects and the simulated book built on them. Each one commits `sheet/latest.json` every weekday after the US close. */
+/** The three research projects, the simulated book built on them, and the vol dashboard's corporate-hedging note.
+ * Each one commits its JSON under `sheet/` every weekday after the US close. */
 export const PROJECTS = [
   {
     slug: "vol",
@@ -7,6 +8,7 @@ export const PROJECTS = [
     repo: "lonb3k/vol-dashboard",
     dir: "vol_dashboard",
     port: 8501,
+    file: "latest.json",
   },
   {
     slug: "dispersion",
@@ -15,6 +17,7 @@ export const PROJECTS = [
     repo: "lonb3k/dispersion",
     dir: "dispersion",
     port: 8502,
+    file: "latest.json",
   },
   {
     slug: "basket",
@@ -23,6 +26,7 @@ export const PROJECTS = [
     repo: "lonb3k/basket-optimizer",
     dir: "basket_optimizer",
     port: 8503,
+    file: "latest.json",
   },
   {
     slug: "book",
@@ -31,6 +35,16 @@ export const PROJECTS = [
     repo: "lonb3k/trading-book",
     dir: "trading_book",
     port: 8504,
+    file: "latest.json",
+  },
+  {
+    slug: "hedging",
+    name: "Hedging",
+    short: "Weekly corporate-hedging note: what a forward locks in and what optionality costs, energy, metals and grains",
+    repo: "lonb3k/vol-dashboard",
+    dir: "vol_dashboard",
+    port: 8501,
+    file: "hedging.json",
   },
 ] as const;
 
@@ -43,6 +57,6 @@ export function projectFor(slug: string) {
   return PROJECTS.find((p) => p.slug === slug);
 }
 
-export function rawUrl(repo: string) {
-  return `https://raw.githubusercontent.com/${repo}/main/sheet/latest.json`;
+export function rawUrl(repo: string, file: string = "latest.json") {
+  return `https://raw.githubusercontent.com/${repo}/main/sheet/${file}`;
 }
