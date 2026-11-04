@@ -52,6 +52,33 @@ export interface Chart {
   figure: { data: Record<string, unknown>[]; layout: Record<string, unknown> };
 }
 
+export interface CalcContract {
+  contract: string;
+  delivery: string;
+  price: number;
+  /** Days from the sheet date to the (approximate) option expiry. */
+  days: number;
+}
+
+export interface CalcMarket {
+  name: string;
+  unit: string;
+  /** Vol to price options with, in %, and where it comes from. */
+  vol: number;
+  vol_source: string;
+  rv21: number | null;
+  pct_5y: number | null;
+  contracts: CalcContract[];
+  /** European benchmark and how much more volatile the free contract is (Bloomberg-calibrated). */
+  benchmark: { name: string; vol_ratio: number } | null;
+}
+
+export interface Calculator {
+  rate: number;
+  markets: CalcMarket[];
+  note: string;
+}
+
 export interface Sheet {
   project: string;
   slug: string;
@@ -69,5 +96,7 @@ export interface Sheet {
   method: string;
   caveats: string[];
   warnings: string[];
+  /** Hedging sheet only: inputs for the hedge calculator. */
+  calculator?: Calculator;
   links: { repo: string; streamlit: string };
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ChartsAnnex from "@/components/ChartsAnnex";
+import HedgeCalculator from "@/components/HedgeCalculator";
 import IdeaCard from "@/components/IdeaCard";
 import SectionBlock from "@/components/SectionBlock";
 import Tile from "@/components/Tile";
@@ -53,6 +54,8 @@ export default async function SheetPage({ params }: { params: Promise<{ slug: st
           <Tile key={i} t={t} />
         ))}
       </section>
+
+      {sheet.calculator && <HedgeCalculator calc={sheet.calculator} />}
 
       <div className="grid">
         <div>
