@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { fmtNum, fmtSigned } from "@/lib/format";
 import type { CalcMarket, Calculator } from "@/lib/types";
+import "./HedgeCalculator.css";
 
 /* ---------- Black-76 on the future, flat vol ---------- */
 
