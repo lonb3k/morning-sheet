@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "./ui.css";
+import CommandPalette from "@/components/CommandPalette";
 import Nav from "@/components/Nav";
 import { PROJECTS } from "@/lib/projects";
 
@@ -24,11 +26,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Nav />
         <main className="wrap">{children}</main>
+        <CommandPalette />
         <footer className="site wrap">
-          <span>Data: Yahoo Finance, CBOE. Regenerated weekdays after the US close by GitHub Actions.</span>
-          {PROJECTS.map((p) => (
-            <a key={p.slug} href={`https://github.com/${p.repo}`} target="_blank" rel="noreferrer">
-              github.com/{p.repo}
+          <span className="foot-by">Built by Ramzan Makhmaev, ESCP Financial Markets.</span>
+          <span>Data: Yahoo Finance, CBOE, calibrated on Bloomberg history. Regenerated weekdays after the US close.</span>
+          {Array.from(new Set(PROJECTS.map((p) => p.repo))).map((r) => (
+            <a key={r} href={`https://github.com/${r}`} target="_blank" rel="noreferrer">
+              github.com/{r}
             </a>
           ))}
           <span>Not investment advice. A student research project.</span>

@@ -214,6 +214,20 @@ export default function HedgeCalculator({ calc }: { calc: Calculator }) {
     setUseBench(false);
     setQty(volumeOf(markets[i].unit).qty);
   };
+  const sectionRef = useRef<HTMLElement>(null);
+  const [flash, setFlash] = useState(0);
+  // Tiles and the ⌘K palette ask for a market by name
+  useEffect(() => {
+    const onSelect = (e: Event) => {
+      const i = markets.findIndex((m) => m.name === (e as CustomEvent<string>).detail);
+      if (i < 0) return;
+      pickMarket(i);
+      setFlash((n) => n + 1);
+      sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    window.addEventListener("hedge:select", onSelect);
+    return () => window.removeEventListener("hedge:select", onSelect);
+  });
   const pickSide = (s: Side) => {
     setSide(s);
     setLevel(s === "producer" ? 90 : 110);
@@ -259,7 +273,7 @@ export default function HedgeCalculator({ calc }: { calc: Calculator }) {
   const verb = side === "producer" ? "sell" : "buy";
 
   return (
-    <section className="calc" aria-label="Hedge calculator">
+    <section className="calc" aria-label="Hedge calculator" id="calculator" data-section="Price a hedge" ref={sectionRef}>
       <div className="col-title">
         <h2>Price a hedge</h2>
         <span className="rule" />
@@ -268,7 +282,7 @@ export default function HedgeCalculator({ calc }: { calc: Calculator }) {
         <div className="calc-controls">
           <label>
             <span>Market</span>
-            <select value={mi} onChange={(e) => pickMarket(Number(e.target.value))}>
+            <select id="calc-market" value={mi} onChange={(e) => pickMarket(Number(e.target.value))}>
               {markets.map((m, i) => (
                 <option key={m.name} value={i}>{m.name}</option>
               ))}
@@ -329,7 +343,7 @@ export default function HedgeCalculator({ calc }: { calc: Calculator }) {
           </label>
         </div>
 
-        <div className="calc-out">
+        <div className="calc-out" key={flash} data-flash={flash > 0 ? "1" : undefined}>
           <div className="calc-cards">
             <div className="calc-card">
               <div className="k">Forward</div>

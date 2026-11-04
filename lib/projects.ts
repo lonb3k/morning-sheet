@@ -3,6 +3,9 @@
 export const PROJECTS = [
   {
     slug: "vol",
+    accent: "var(--blue)",
+    tagline: "Equity and commodity vol",
+    app: "https://lonb3k-vol-dashboard.streamlit.app",
     name: "Volatility",
     short: "Realized vs implied, term structure, skew, the VIX rebuilt, HAR forecasts, straddle P&L",
     repo: "lonb3k/vol-dashboard",
@@ -12,6 +15,9 @@ export const PROJECTS = [
   },
   {
     slug: "dispersion",
+    accent: "var(--orange)",
+    tagline: "Implied vs realized correlation",
+    app: "https://lonb3k-dispersion.streamlit.app",
     name: "Dispersion",
     short: "Implied vs realized correlation on the S&P 500 top-50, the book priced from 50 chains",
     repo: "lonb3k/dispersion",
@@ -21,6 +27,9 @@ export const PROJECTS = [
   },
   {
     slug: "basket",
+    accent: "var(--aqua)",
+    tagline: "Risk-based baskets",
+    app: "https://lonb3k-basket-optimizer.streamlit.app",
     name: "Basket",
     short: "Six risk-based weighting schemes walk-forward, vol targeting, Mag 7 cap",
     repo: "lonb3k/basket-optimizer",
@@ -30,6 +39,9 @@ export const PROJECTS = [
   },
   {
     slug: "book",
+    accent: "var(--violet)",
+    tagline: "Simulated exotics book",
+    app: "",
     name: "Book",
     short: "Simulated derivatives book on the three projects' marks: daily P&L explain, risk against limits, axes",
     repo: "lonb3k/trading-book",
@@ -39,6 +51,9 @@ export const PROJECTS = [
   },
   {
     slug: "hedging",
+    accent: "var(--yellow)",
+    tagline: "Corporate commodity hedging",
+    app: "https://lonb3k-vol-dashboard.streamlit.app",
     name: "Hedging",
     short: "Weekly corporate-hedging note: what a forward locks in and what optionality costs, energy, metals and grains",
     repo: "lonb3k/vol-dashboard",

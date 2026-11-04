@@ -4,7 +4,7 @@ import type { Chart } from "@/lib/types";
 export default function ChartsAnnex({ charts }: { charts: Chart[] }) {
   if (!charts.length) return null;
   return (
-    <section id="charts">
+    <section id="charts" data-section="Charts" className="anchor">
       <div className="col-title">
         <h2>Annex: charts</h2>
         <span className="rule" />

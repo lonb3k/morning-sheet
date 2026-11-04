@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import ChartsAnnex from "@/components/ChartsAnnex";
 import HedgeCalculator from "@/components/HedgeCalculator";
+import HedgeTiles from "@/components/HedgeTiles";
+import Icon from "@/components/Icon";
 import IdeaCard from "@/components/IdeaCard";
+import SectionBar from "@/components/SectionBar";
 import SectionBlock from "@/components/SectionBlock";
 import Tile from "@/components/Tile";
 import { fmtDate, fmtDateTime } from "@/lib/format";
@@ -22,6 +26,23 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return { title: p ? `${p.name} morning sheet` : "Morning sheet", description: p?.short };
 }
 
+function Pager({ slug }: { slug: string }) {
+  const i = PROJECTS.findIndex((p) => p.slug === slug);
+  const prev = PROJECTS[(i - 1 + PROJECTS.length) % PROJECTS.length];
+  const next = PROJECTS[(i + 1) % PROJECTS.length];
+  return (
+    <nav className="pager" aria-label="Other sheets">
+      {[{ p: prev, dir: "Previous" }, { p: next, dir: "Next" }].map(({ p, dir }) => (
+        <Link key={dir} href={`/${p.slug}`} className={`pager-card ${dir === "Next" ? "next" : ""}`} style={{ "--c": p.accent } as React.CSSProperties}>
+          <span className="kicker">{dir} sheet</span>
+          <span className="pager-name"><Icon name={p.slug} size={18} />{p.name}</span>
+          <span className="pager-short">{p.short}</span>
+        </Link>
+      ))}
+    </nav>
+  );
+}
+
 export default async function SheetPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const project = projectFor(slug);
@@ -33,32 +54,51 @@ export default async function SheetPage({ params }: { params: Promise<{ slug: st
         <div className="kicker">{project.name}</div>
         <h1>Sheet unavailable</h1>
         <p className="sub">
-          The JSON at github.com/{project.repo}/sheet/latest.json could not be read. It is regenerated every weekday after the US close.
+          The JSON at github.com/{project.repo}/sheet/{project.file} could not be read. It is regenerated every weekday after the US close.
         </p>
       </div>
     );
   }
+  const app = sheet.links.streamlit.startsWith("http") ? sheet.links.streamlit : project.app;
   return (
-    <>
+    <div style={{ "--c": project.accent } as React.CSSProperties}>
       <header className="page-head">
         <div className="kicker">
+          <span className="live" aria-hidden />
           {fmtDate(sheet.as_of)} · generated {fmtDateTime(sheet.generated_at)}
         </div>
-        <h1>{sheet.title} morning sheet</h1>
+        <div className="title-row">
+          <span className="title-icon"><Icon name={slug} size={22} /></span>
+          <h1>{sheet.title} morning sheet</h1>
+        </div>
         <p className="sub">{sheet.subtitle}</p>
+        <div className="head-actions">
+          {app && (
+            <a className="btn" href={app} target="_blank" rel="noreferrer"><Icon name="app" size={15} />Interactive dashboard</a>
+          )}
+          <a className="btn ghost" href={sheet.links.repo} target="_blank" rel="noreferrer"><Icon name="github" size={15} />Code and data</a>
+        </div>
       </header>
-      <p className="lede">{sheet.headline}</p>
 
-      <section className="tiles" aria-label="Headline numbers">
-        {sheet.tiles.map((t, i) => (
-          <Tile key={i} t={t} />
-        ))}
+      <SectionBar title={`${sheet.title} morning sheet`} />
+
+      <section id="summary" data-section="Summary" className="anchor">
+        <p className="lede">{sheet.headline}</p>
+        {sheet.calculator ? (
+          <HedgeTiles tiles={sheet.tiles} />
+        ) : (
+          <section className="tiles" aria-label="Headline numbers">
+            {sheet.tiles.map((t, i) => (
+              <Tile key={i} t={t} />
+            ))}
+          </section>
+        )}
       </section>
 
       {sheet.calculator && <HedgeCalculator calc={sheet.calculator} />}
 
       <div className="grid">
-        <div>
+        <div id="ideas" data-section={sheet.ideas_title ? sheet.ideas_title.split(",")[0] : "Trade ideas"} className="anchor">
           <div className="col-title">
             <h2>{sheet.ideas_title ?? "Trade ideas, ranked"}</h2>
             <span className="rule" />
@@ -70,7 +110,7 @@ export default async function SheetPage({ params }: { params: Promise<{ slug: st
           </div>
           <p className="footnote" style={{ marginTop: 10 }}>{sheet.method}</p>
         </div>
-        <div>
+        <div id="read" data-section="The read" className="anchor">
           <div className="col-title">
             <h2>The read</h2>
             <span className="rule" />
@@ -84,7 +124,7 @@ export default async function SheetPage({ params }: { params: Promise<{ slug: st
       <div style={{ height: 28 }} />
       <ChartsAnnex charts={sheet.charts} />
 
-      <div className="notes">
+      <div className="notes anchor" id="notes" data-section="Caveats">
         <div>
           <h4>Caveats</h4>
           <ul>
@@ -99,19 +139,18 @@ export default async function SheetPage({ params }: { params: Promise<{ slug: st
             <li>
               Code and data: <a href={sheet.links.repo} target="_blank" rel="noreferrer">{sheet.links.repo.replace("https://", "")}</a>
             </li>
-            <li>
-              Full interactive app:{" "}
-              {sheet.links.streamlit.startsWith("http") ? (
-                <a href={sheet.links.streamlit} target="_blank" rel="noreferrer">{sheet.links.streamlit.replace("https://", "")}</a>
-              ) : (
-                <span className="mono">{sheet.links.streamlit}</span>
-              )}
-            </li>
-            <li>This page reads <span className="mono">sheet/latest.json</span>, rebuilt by GitHub Actions on weekdays after the close.</li>
+            {app && (
+              <li>
+                Full interactive app: <a href={app} target="_blank" rel="noreferrer">{app.replace("https://", "")}</a>
+              </li>
+            )}
+            <li>This page reads <span className="mono">sheet/{project.file}</span>, rebuilt by GitHub Actions on weekdays after the close.</li>
             {sheet.warnings.length > 0 && <li>Build warnings: {sheet.warnings.join("; ")}</li>}
           </ul>
         </div>
       </div>
-    </>
+
+      <Pager slug={slug} />
+    </div>
   );
 }
