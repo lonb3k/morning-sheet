@@ -1,4 +1,5 @@
-/** The three research projects, the simulated book built on them, and the vol dashboard's corporate-hedging note.
+/** The three research projects, the simulated book built on them, the vol dashboard's corporate-hedging note and the
+ * Norwegian gas maintenance study.
  * Each one commits its JSON under `sheet/` every weekday after the US close. */
 export const PROJECTS = [
   {
@@ -60,6 +61,20 @@ export const PROJECTS = [
     dir: "vol_dashboard",
     port: 8501,
     file: "hedging.json",
+  },
+  {
+    slug: "norway",
+    accent: "var(--magenta)",
+    tagline: "Norwegian gas maintenance",
+    app: "",
+    name: "Norway gas",
+    short: "How Gassco's planned-maintenance end dates slip: 392 maintenances rebuilt from the UMM archive, checked on flows, tested forward",
+    // The research repository (lonb3k/norway-maintenance) is private: its aggregate sheet is committed here instead.
+    repo: "lonb3k/morning-sheet",
+    dir: "morning_sheet",
+    port: 0,
+    file: "norway.json",
+    refresh: "rebuilt from the Gassco feed and committed here; the research code stays private until Gassco's terms on reuse are confirmed",
   },
 ] as const;
 

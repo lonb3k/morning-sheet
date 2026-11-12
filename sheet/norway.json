@@ -1,0 +1,676 @@
+{
+ "project": "norway_maintenance",
+ "slug": "norway",
+ "title": "Norway gas",
+ "subtitle": "How Gassco's planned-maintenance end dates slip: 392 maintenances rebuilt from the public UMM archive, checked on physical flows, tested forward",
+ "as_of": "2026-11-12",
+ "generated_at": "2026-11-12T12:57:26Z",
+ "headline": "Norwegian gas maintenance ends on time when it is short and runs late 30% of the time when it is planned for one to three weeks (46 events, mean slip +5.4 days). The overrun is physical: exports fall on slipped days as on announced ones. A frozen forecast table is now being tested forward, day by day.",
+ "tiles": [
+  {
+   "label": "Late by more than a day",
+   "value": 11.5,
+   "unit": "%",
+   "sub": "of 392 completed maintenances, 95% interval 8% to 16%",
+   "tone": "neg",
+   "spark": [
+    0.0,
+    0.0,
+    0.0,
+    3.3,
+    9.1,
+    9.9,
+    8.2,
+    8.7,
+    8.1,
+    8.8,
+    8.9,
+    9.9,
+    11.1,
+    10.8,
+    12.0,
+    12.9,
+    12.4,
+    11.2,
+    11.6,
+    11.6,
+    11.7,
+    10.7,
+    11.5,
+    11.5
+   ]
+  },
+  {
+   "label": "Late, 1 to 3 week maintenances",
+   "value": 30.4,
+   "unit": "%",
+   "sub": "46 events, interval 18% to 44%, mean slip +5.4 days",
+   "tone": "neg",
+   "spark": [
+    0.0,
+    66.7,
+    57.1,
+    40.0,
+    36.4,
+    34.8,
+    29.6,
+    32.1,
+    36.7,
+    35.5,
+    33.3,
+    30.6,
+    30.8,
+    32.5,
+    31.7,
+    29.5,
+    30.4
+   ]
+  },
+  {
+   "label": "Volume lost vs announced",
+   "value": 1.11,
+   "unit": "x",
+   "sub": "interval 1.01 to 1.22; 37,572 mcm against 33,841",
+   "tone": "neg",
+   "spark": []
+  },
+  {
+   "label": "Extensions under 24 h before due",
+   "value": 42.9,
+   "unit": "%",
+   "sub": "147 extensions, median notice 40 hours",
+   "tone": "neutral",
+   "spark": []
+  },
+  {
+   "label": "Planned outages, next 30 days",
+   "value": 4.0,
+   "unit": "events",
+   "sub": "the frozen table expects 0.8 of them to run more than a day late",
+   "tone": "neutral",
+   "spark": []
+  },
+  {
+   "label": "Forward test, 1-3 week events",
+   "value": 0.0,
+   "unit": "events of 15",
+   "sub": "decided at 15 events or on 2027-06-30",
+   "tone": "neutral",
+   "spark": []
+  }
+ ],
+ "sections": [
+  {
+   "title": "What the archive shows",
+   "paragraphs": [
+    "392 completed planned maintenances on the Norwegian gas network, rebuilt revision by revision from Gassco's public messages (3,004 revisions). 73% ended exactly when announced at the start, 11% more than a day late, 5% more than a day early: late beats early 45 to 21 (sign test p = 0.004, the pre-registered hypothesis holds).",
+    "The slip lives in maintenance planned for one to three weeks. Short jobs are on time; the longest ones end early as often as late."
+   ],
+   "table": {
+    "columns": [
+     "Planned duration",
+     "Events",
+     "Late >1 day, %",
+     "95% interval",
+     "Mean slip, days",
+     "1 in 5 runs past, days"
+    ],
+    "rows": [
+     [
+      "2 days or less",
+      229,
+      3.1,
+      "1% to 5%",
+      0.1,
+      0.0
+     ],
+     [
+      "2 to 7 days",
+      91,
+      19.8,
+      "9% to 32%",
+      1.1,
+      1.0
+     ],
+     [
+      "1 to 3 weeks",
+      46,
+      30.4,
+      "18% to 44%",
+      5.4,
+      5.0
+     ],
+     [
+      "over 3 weeks",
+      26,
+      23.1,
+      "9% to 42%",
+      -1.1,
+      5.0
+     ]
+    ]
+   }
+  },
+  {
+   "title": "By type of asset",
+   "paragraphs": [
+    "Fields, processing plants (Kårstø, Kollsnes, Nyhamna...) and exit terminals behave alike on the share late; the means are driven by a few long overruns."
+   ],
+   "table": {
+    "columns": [
+     "Family",
+     "Events",
+     "Late >1 day, %",
+     "Early >1 day, %",
+     "Mean slip, days"
+    ],
+    "rows": [
+     [
+      "exit terminal",
+      59,
+      8.5,
+      3.4,
+      3.0
+     ],
+     [
+      "field",
+      235,
+      12.8,
+      5.1,
+      0.4
+     ],
+     [
+      "processing plant",
+      98,
+      10.2,
+      7.1,
+      0.6
+     ]
+    ]
+   }
+  },
+  {
+   "title": "The slip is physical",
+   "paragraphs": [
+    "Daily Norwegian export flows (ENTSOG, 2024-12 to 2026-11) regressed on unavailable capacity, each maintenance split into the days announced at its start and the days it slipped. A mcm/d of slipped capacity removes 4.7 GWh/d of exports, a mcm/d announced 3.3: the extra days are real outages, not paperwork. Pre-registered before it was run; it holds in every robustness check."
+   ],
+   "table": {
+    "columns": [
+     "Specification",
+     "Announced days, GWh/d per mcm/d",
+     "Slipped days, GWh/d per mcm/d",
+     "Verdict"
+    ],
+    "rows": [
+     [
+      "Main",
+      3.27,
+      4.72,
+      "final dates confirmed physically"
+     ],
+     [
+      "One-day lag",
+      2.62,
+      3.73,
+      "final dates confirmed physically"
+     ],
+     [
+      "Without processing plants",
+      5.86,
+      6.66,
+      "final dates confirmed physically"
+     ],
+     [
+      "Late slips only",
+      3.2,
+      5.14,
+      "final dates confirmed physically"
+     ]
+    ]
+   }
+  },
+  {
+   "title": "Can the slip be predicted?",
+   "paragraphs": [
+    "Out of sample (208 events before 2026, 184 in 2026), no correction beats the announced date as a point estimate (the second hypothesis fails): mean absolute error 0.98 days trusting the message. What is predictable is the risk around the date, by planned duration. That is what the forward test now checks."
+   ]
+  },
+  {
+   "title": "Next 30 days, in aggregate",
+   "paragraphs": [
+    "4 planned maintenances are running or start within 30 days (2 running now). Announced unavailable capacity peaks at 47 mcm/d on 2026-11-24. Applied to each of them, the frozen table expects 0.8 to come back more than a day late, most of that risk in the maintenances planned for over 3 weeks.",
+    "Event by event figures stay off this page until Gassco's terms on republication are confirmed."
+   ],
+   "table": {
+    "columns": [
+     "Planned duration",
+     "Maintenances",
+     "Expected late >1 day"
+    ],
+    "rows": [
+     [
+      "2 days or less",
+      1,
+      0.0
+     ],
+     [
+      "2 to 7 days",
+      0,
+      0.0
+     ],
+     [
+      "1 to 3 weeks",
+      1,
+      0.3
+     ],
+     [
+      "over 3 weeks",
+      2,
+      0.5
+     ]
+    ]
+   }
+  },
+  {
+   "title": "Forward test, live since 13 November 2026",
+   "paragraphs": [
+    "The forecast table was frozen and its SHA-256 committed (addendum 2 to the pre-registration). Every day the tool logs its forecast for each active maintenance: 174 forecasts over 1 day(s) so far. Maintenances that begin after the freeze are scored once they end: 0 measured, 173 running or to come.",
+    "Primary test: do one-to-three-week maintenances still run late more often than short ones (one-sided Fisher)? Decided once, at 15 such events or on 2027-06-30. Until then the figures are interim."
+   ]
+  }
+ ],
+ "ideas": [
+  {
+   "rank": 1,
+   "title": "Plan for slip on maintenance planned for 1 to 3 weeks",
+   "direction": "plan late",
+   "instrument": "Supply balance and prompt/month-ahead position around the return date",
+   "condition": "a planned outage of 7 to 21 days is announced",
+   "thesis": "30% of them ran more than a day late; one in five ran 5 days or more past the date.",
+   "stats": {
+    "expected": 5.4,
+    "expected_unit": "days, mean slip",
+    "hit": 30,
+    "worst": 9.0,
+    "worst_unit": "days, 1 in 10 runs past",
+    "n": 46,
+    "sample": "Nov 2024 to Nov 2026",
+    "labels": {
+     "expected": "Mean slip",
+     "hit": "Late >1 day",
+     "hit_unit": "of these maintenances",
+     "worst": "90th percentile",
+     "sample": "Events"
+    }
+   },
+   "score": null
+  },
+  {
+   "rank": 2,
+   "title": "After one extension, expect another",
+   "direction": "plan late",
+   "instrument": "Return date of a maintenance already extended",
+   "condition": "Gassco has pushed the end date back once",
+   "thesis": "38% of maintenances extended once were extended again, 47% after two, against 20% extended at all.",
+   "stats": {
+    "expected": 18.6,
+    "expected_unit": "points above the base rate",
+    "hit": 38,
+    "worst": 26.8,
+    "worst_unit": "points above the base rate",
+    "n": 78,
+    "sample": "extended once",
+    "labels": {
+     "expected": "Lift",
+     "hit": "Extended again",
+     "hit_unit": "after one extension",
+     "worst": "Lift after two",
+     "sample": "Events"
+    }
+   },
+   "score": null
+  },
+  {
+   "rank": 3,
+   "title": "Take short maintenance dates as firm",
+   "direction": "trust the date",
+   "instrument": "Outages planned for two days or less",
+   "condition": "a planned outage of 2 days or less is announced",
+   "thesis": "Only 3.1% ran more than a day late. The message itself gives little warning when one does: 43% of all extensions come under 24 hours before the due date.",
+   "stats": {
+    "expected": 0.07,
+    "expected_unit": "days, mean slip",
+    "hit": 3,
+    "worst": 0.0,
+    "worst_unit": "days, 90th percentile",
+    "n": 229,
+    "sample": "Nov 2024 to Nov 2026",
+    "labels": {
+     "expected": "Mean slip",
+     "hit": "Late >1 day",
+     "hit_unit": "of these maintenances",
+     "worst": "90th percentile",
+     "sample": "Events"
+    }
+   },
+   "score": null
+  }
+ ],
+ "ideas_title": "What a gas desk does with it, by rule",
+ "charts": [
+  {
+   "id": "late_by_duration",
+   "title": "Share of maintenances ending more than a day late, by planned duration",
+   "figure": {
+    "data": [
+     {
+      "type": "bar",
+      "x": [
+       "2 days or less (n=229)",
+       "2 to 7 days (n=91)",
+       "1 to 3 weeks (n=46)",
+       "over 3 weeks (n=26)"
+      ],
+      "y": [
+       3.06,
+       19.78,
+       30.43,
+       23.080000000000002
+      ],
+      "marker": {
+       "color": "#3987e5"
+      },
+      "width": 0.5,
+      "error_y": {
+       "type": "data",
+       "symmetric": false,
+       "array": [
+        1.97,
+        12.360000000000001,
+        13.76,
+        18.6
+       ],
+       "arrayminus": [
+        1.8499999999999999,
+        10.690000000000001,
+        12.430000000000001,
+        14.38
+       ],
+       "color": "#8b94a7",
+       "thickness": 1.2,
+       "width": 6
+      },
+      "hovertemplate": "%{x}<br>%{y:.0f}% late<extra></extra>"
+     }
+    ],
+    "layout": {
+     "title": {
+      "text": "Late by more than a day, % (95% interval)"
+     },
+     "height": 320,
+     "margin": {
+      "l": 56,
+      "r": 20,
+      "t": 64,
+      "b": 48
+     },
+     "yaxis": {
+      "title": {
+       "text": "%"
+      },
+      "rangemode": "tozero"
+     },
+     "showlegend": false
+    }
+   }
+  },
+  {
+   "id": "overshoot",
+   "title": "Final end date minus the date announced at the start, days",
+   "figure": {
+    "data": [
+     {
+      "type": "bar",
+      "x": [
+       -10,
+       -9,
+       -8,
+       -7,
+       -6,
+       -5,
+       -4,
+       -3,
+       -2,
+       -1,
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       10,
+       12,
+       13,
+       14,
+       20
+      ],
+      "y": [
+       5,
+       1,
+       1,
+       2,
+       4,
+       1,
+       1,
+       2,
+       3,
+       16,
+       288,
+       23,
+       9,
+       7,
+       5,
+       3,
+       5,
+       2,
+       3,
+       1,
+       1,
+       1,
+       2,
+       6
+      ],
+      "marker": {
+       "color": [
+        "#3987e5",
+        "#3987e5",
+        "#3987e5",
+        "#3987e5",
+        "#3987e5",
+        "#3987e5",
+        "#3987e5",
+        "#3987e5",
+        "#3987e5",
+        "#8b94a7",
+        "#8b94a7",
+        "#8b94a7",
+        "#d95926",
+        "#d95926",
+        "#d95926",
+        "#d95926",
+        "#d95926",
+        "#d95926",
+        "#d95926",
+        "#d95926",
+        "#d95926",
+        "#d95926",
+        "#d95926",
+        "#d95926"
+       ]
+      },
+      "hovertemplate": "%{x} days: %{y} maintenances<extra></extra>"
+     }
+    ],
+    "layout": {
+     "title": {
+      "text": "Slip in days (clipped at -10 and +20); orange: late by more than a day"
+     },
+     "height": 320,
+     "margin": {
+      "l": 56,
+      "r": 20,
+      "t": 64,
+      "b": 48
+     },
+     "yaxis": {
+      "type": "log",
+      "title": {
+       "text": "maintenances (log)"
+      }
+     },
+     "showlegend": false,
+     "xaxis": {
+      "title": {
+       "text": "days"
+      },
+      "dtick": 5
+     }
+    }
+   }
+  },
+  {
+   "id": "slip_window",
+   "title": "Exports lost per mcm/d of unavailable capacity: announced days vs slipped days (ENTSOG)",
+   "figure": {
+    "data": [
+     {
+      "type": "scatter",
+      "mode": "markers",
+      "name": "Announced days",
+      "x": [
+       "Main",
+       "One-day lag",
+       "No processing plants",
+       "Late slips only"
+      ],
+      "y": [
+       3.27,
+       2.6249,
+       5.8562,
+       3.1977
+      ],
+      "marker": {
+       "color": "#3987e5",
+       "size": 10
+      },
+      "offsetgroup": "Announced days",
+      "error_y": {
+       "type": "data",
+       "symmetric": false,
+       "array": [
+        1.0624999999999996,
+        0.6180000000000003,
+        1.2845999999999993,
+        0.9738999999999995
+       ],
+       "arrayminus": [
+        0.5472999999999999,
+        0.6138999999999997,
+        0.9142999999999999,
+        0.5083000000000002
+       ],
+       "color": "#3987e5",
+       "thickness": 1.2,
+       "width": 5
+      },
+      "hovertemplate": "%{x}: %{y:.1f} GWh/d per mcm/d<extra>Announced days</extra>"
+     },
+     {
+      "type": "scatter",
+      "mode": "markers",
+      "name": "Slipped days",
+      "x": [
+       "Main",
+       "One-day lag",
+       "No processing plants",
+       "Late slips only"
+      ],
+      "y": [
+       4.7231,
+       3.7299,
+       6.6597,
+       5.1381
+      ],
+      "marker": {
+       "color": "#d95926",
+       "size": 10
+      },
+      "offsetgroup": "Slipped days",
+      "error_y": {
+       "type": "data",
+       "symmetric": false,
+       "array": [
+        1.4619,
+        1.3805,
+        2.534,
+        1.7492
+       ],
+       "arrayminus": [
+        1.7041999999999997,
+        1.7995000000000003,
+        2.0305999999999997,
+        2.1525
+       ],
+       "color": "#d95926",
+       "thickness": 1.2,
+       "width": 5
+      },
+      "hovertemplate": "%{x}: %{y:.1f} GWh/d per mcm/d<extra>Slipped days</extra>"
+     }
+    ],
+    "layout": {
+     "title": {
+      "text": "GWh/d of exports lost per mcm/d unavailable, 95% interval"
+     },
+     "height": 320,
+     "margin": {
+      "l": 56,
+      "r": 20,
+      "t": 64,
+      "b": 48
+     },
+     "yaxis": {
+      "title": {
+       "text": "GWh/d per mcm/d"
+      },
+      "rangemode": "tozero"
+     },
+     "showlegend": true,
+     "scattermode": "group",
+     "legend": {
+      "orientation": "h",
+      "y": 1.08,
+      "x": 0
+     }
+    }
+   }
+  }
+ ],
+ "method": "Each rule comes from the archive study: the announcement in force when the outage began against the final end date. Intervals: bootstrap by asset and year, 4,000 draws. Hypotheses and thresholds were committed before any statistic was computed.",
+ "caveats": [
+  "Two seasons of data (maintenance from November 2024): 392 events, 46 of them planned for one to three weeks. The forward test is there to confirm it.",
+  "An end date nobody revises counts as on time: Gassco closes most events at the announced date.",
+  "Gassco publishes only events above 5 mcm/d; field and processing-plant outages can overlap, so summed volumes overstate the net loss.",
+  "No price test yet: it waits for a licensed daily TTF series.",
+  "Aggregates only. Gassco's terms say nothing about republication, so no event, asset or message is listed here; the code repository stays private until they are confirmed.",
+  "Data: Gassco AS (umm.gassco.no), which disclaims responsibility for the correctness and timeliness of the information; ENTSOG transparency platform. Not investment advice."
+ ],
+ "warnings": [],
+ "links": {
+  "repo": "https://github.com/lonb3k/morning-sheet/blob/main/sheet/norway.json",
+  "streamlit": "no separate app: the code is private until Gassco's terms are confirmed"
+ }
+}

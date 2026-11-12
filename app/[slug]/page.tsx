@@ -122,7 +122,7 @@ export default async function SheetPage({ params }: { params: Promise<{ slug: st
       </div>
 
       <div style={{ height: 28 }} />
-      <ChartsAnnex charts={sheet.charts} />
+      <ChartsAnnex charts={sheet.charts} fromApp={Boolean(app)} />
 
       <div className="notes anchor" id="notes" data-section="Caveats">
         <div>
@@ -144,7 +144,7 @@ export default async function SheetPage({ params }: { params: Promise<{ slug: st
                 Full interactive app: <a href={app} target="_blank" rel="noreferrer">{app.replace("https://", "")}</a>
               </li>
             )}
-            <li>This page reads <span className="mono">sheet/{project.file}</span>, rebuilt by GitHub Actions on weekdays after the close.</li>
+            <li>This page reads <span className="mono">sheet/{project.file}</span>, {"refresh" in project ? project.refresh : "rebuilt by GitHub Actions on weekdays after the close"}.</li>
             {sheet.warnings.length > 0 && <li>Build warnings: {sheet.warnings.join("; ")}</li>}
           </ul>
         </div>

@@ -23,9 +23,9 @@ export default async function Home() {
     <>
       <section className="hero">
         <div className="kicker"><span className="live" aria-hidden />{asOf ? `Updated ${fmtDate(asOf)}` : "Updated every weekday"}</div>
-        <h1>Five desk sheets, rebuilt from every close.</h1>
+        <h1>Six desk sheets, rebuilt from the data.</h1>
         <p>
-          Volatility, correlation, baskets, a simulated exotics book and corporate commodity hedging. Each sheet runs a
+          Volatility, correlation, baskets, a simulated exotics book, corporate commodity hedging and Norwegian gas maintenance. Each sheet runs a
           research project on the latest data and writes what a desk would say, with the numbers behind every sentence.
         </p>
         <div className="hero-actions">

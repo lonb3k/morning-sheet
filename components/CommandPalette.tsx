@@ -53,7 +53,7 @@ export default function CommandPalette() {
     const go = (href: string) => () => { close(); router.push(href); };
     const ext = (href: string) => () => { close(); window.open(href, "_blank", "noopener"); };
     const out: Item[] = [
-      { id: "home", group: "Sheets", label: "Home", hint: "All five sheets", icon: "home", run: go("/") },
+      { id: "home", group: "Sheets", label: "Home", hint: "All six sheets", icon: "home", run: go("/") },
       ...PROJECTS.map((p) => ({ id: p.slug, group: "Sheets", label: p.name, hint: p.tagline, icon: p.slug, run: go(`/${p.slug}`) })),
       ...sections.map((s) => ({
         id: `sec-${s.id}`, group: "On this page", label: s.label, icon: "section",
