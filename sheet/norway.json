@@ -4,7 +4,7 @@
  "title": "Norway gas",
  "subtitle": "How Gassco's planned-maintenance end dates slip: 392 maintenances rebuilt from the public UMM archive, checked on physical flows, tested forward",
  "as_of": "2026-11-12",
- "generated_at": "2026-11-12T12:57:26Z",
+ "generated_at": "2026-11-12T13:09:12Z",
  "headline": "Norwegian gas maintenance ends on time when it is short and runs late 30% of the time when it is planned for one to three weeks (46 events, mean slip +5.4 days). The overrun is physical: exports fall on slipped days as on announced ones. A frozen forecast table is now being tested forward, day by day.",
  "tiles": [
   {
@@ -274,7 +274,7 @@
   {
    "title": "Forward test, live since 13 November 2026",
    "paragraphs": [
-    "The forecast table was frozen and its SHA-256 committed (addendum 2 to the pre-registration). Every day the tool logs its forecast for each active maintenance: 174 forecasts over 1 day(s) so far. Maintenances that begin after the freeze are scored once they end: 0 measured, 173 running or to come.",
+    "The forecast table was frozen and its SHA-256 committed (addendum 2 to the pre-registration). Every day the tool logs its forecast for each active maintenance: 174 forecasts over 1 day so far. Maintenances that begin after the freeze are scored once they end: 0 measured, 173 running or to come.",
     "Primary test: do one-to-three-week maintenances still run late more often than short ones (one-sided Fisher)? Decided once, at 15 such events or on 2027-06-30. Until then the figures are interim."
    ]
   }
