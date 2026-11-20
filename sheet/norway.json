@@ -3,8 +3,8 @@
  "slug": "norway",
  "title": "Norway gas",
  "subtitle": "How Gassco's planned-maintenance end dates slip: 392 maintenances rebuilt from the public UMM archive, checked on physical flows, tested forward",
- "as_of": "2026-11-19",
- "generated_at": "2026-11-19T00:04:26Z",
+ "as_of": "2026-11-20",
+ "generated_at": "2026-11-20T00:01:33Z",
  "headline": "Norwegian gas maintenance ends on time when it is short and runs late 30% of the time when it is planned for one to three weeks (46 events, mean slip +5.4 days). The overrun is physical: exports fall on slipped days as on announced ones. A frozen forecast table is now being tested forward, day by day.",
  "tiles": [
   {
@@ -86,7 +86,7 @@
    "label": "Planned outages, next 30 days",
    "value": 7.0,
    "unit": "events",
-   "sub": "the frozen table expects 1.2 of them to run more than a day late",
+   "sub": "the frozen table expects 1.1 of them to run more than a day late",
    "tone": "neutral",
    "spark": []
   },
@@ -238,7 +238,7 @@
   {
    "title": "Next 30 days, in aggregate",
    "paragraphs": [
-    "7 planned maintenances are running or start within 30 days (4 running now). Announced unavailable capacity peaks at 95 mcm/d on 2026-11-19. Applied to each of them, the frozen table expects 1.2 to come back more than a day late, most of that risk in the maintenances planned for over 3 weeks.",
+    "7 planned maintenances are running or start within 30 days (5 running now). Announced unavailable capacity peaks at 95 mcm/d on 2026-11-20. Applied to each of them, the frozen table expects 1.1 to come back more than a day late, most of that risk in the maintenances planned for over 3 weeks.",
     "Event by event figures stay off this page until Gassco's terms on republication are confirmed."
    ],
    "table": {
@@ -260,13 +260,13 @@
      ],
      [
       "1 to 3 weeks",
-      1,
-      0.3
+      0,
+      0.0
      ],
      [
       "over 3 weeks",
-      2,
-      0.5
+      3,
+      0.7
      ]
     ]
    }
@@ -274,7 +274,7 @@
   {
    "title": "Forward test, live since 13 November 2026",
    "paragraphs": [
-    "The forecast table was frozen and its SHA-256 committed (addendum 2 to the pre-registration). Every day the tool logs its forecast for each active maintenance: 1,398 forecasts over 8 days so far. Maintenances that begin after the freeze are scored once they end: 0 measured, 174 running or to come, 2 cancelled.",
+    "The forecast table was frozen and its SHA-256 committed (addendum 2 to the pre-registration). Every day the tool logs its forecast for each active maintenance: 1,574 forecasts over 9 days so far. Maintenances that begin after the freeze are scored once they end: 0 measured, 175 running or to come, 2 cancelled.",
     "Primary test: do one-to-three-week maintenances still run late more often than short ones (one-sided Fisher)? Decided once, at 15 such events or on 2027-06-30. Until then the figures are interim."
    ]
   }
